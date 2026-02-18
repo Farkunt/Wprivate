@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealFar Web - Glowing Edition</title>
+    <style>
+        /* Animasi Background Bintik Bergerak */
+        @keyframes particles {
+            0% { background-position: 0 0; }
+            100% { background-position: 500px 1000px; }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            /* Latar Belakang Bintik Bercahaya */
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0);
+            background-size: 40px 40px;
+            animation: particles 30s linear infinite;
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 450px;
+            padding: 40px 25px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #fff;
+            border-radius: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            /* Outline Bercahaya Putih */
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.1);
+            position: relative;
+            margin: 20px 0;
+        }
+
+        /* Logo Bercahaya */
+        .logo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            border: 2px solid white;
+        }
+
+        h1 { font-size: 1rem; color: #ccc; text-transform: uppercase; letter-spacing: 3px; }
+        h2 { 
+            font-size: 2.8rem; 
+            margin: 10px 0 30px; 
+            text-shadow: 0 0 15px #007bff, 0 0 30px #007bff;
+        }
+
+        /* Tombol Biru Bercahaya & Animasi Klik */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            margin: 18px 0;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+            outline: none;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 30px rgba(0, 123, 255, 1);
+            background: #00a2ff;
+        }
+
+        /* Efek Membesar Saat Klik */
+        .btn:active {
+            transform: scale(1.2) !important; 
+            box-shadow: 0 0 50px rgba(0, 162, 255, 1);
+        }
+
+        /* Styling Shop */
+        .page { display: none; }
+        .active { display: block; animation: fadeIn 0.5s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+        }
+
+        .price { color: #00ffcc; font-size: 1.4rem; font-weight: bold; text-shadow: 0 0 10px #00ffcc; }
+        .desc { font-style: italic; color: #aaa; font-size: 0.85rem; margin: 10px 0; }
+
+        /* Review Section */
+        .review-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .stars {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .star {
+            cursor: pointer;
+            color: #444;
+            transition: 0.2s;
+        }
+        .star.selected {
+            color: #ffcc00;
+            text-shadow: 0 0 15px #ffcc00;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            background: #111;
+            color: white;
+            border: 1px solid #444;
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: underline;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HALAMAN 1 -->
+    <div id="home" class="container page active">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>Welcome, to</h1>
+        <h2>RealFar web!!</h2>
+        
+        <button class="btn" onclick="showPage('shop')">JASA SHOP</button>
+        <button class="btn" onclick="openLink('https://www.tiktok.com/@_realfar_?_r=1&_t=ZS-941LEeXpyZb')">TIKTOK</button>
+        <button class="btn" onclick="openLink('https://whatsapp.com/channel/0029Vb7CNIFEwEjnT3EEMI0C')">SALURAN</button>
+    </div>
+
+    <!-- HALAMAN 2 (JASA SHOP) -->
+    <div id="shop" class="container page">
+        <h2 style="font-size: 1.8rem;">JASA SHOP SCRIPT</h2>
+
+        <div class="product-card">
+            <h3 style="margin:0">Script Lua Tinggi</h3>
+            <div class="price">10k</div>
+            <p class="desc">"hanya untuk studio lite"</p>
+            <button class="btn" onclick="buy('Tinggi', '10k')">BELI SEKARANG</button>
+        </div>
+
+        <div class="product-card">
+            <h3 style="margin:0">Script Lua Menengah</h3>
+            <div class="price">7k</div>
+            <p class="desc">"hanya untuk studio lite"</p>
+            <button class="btn" onclick="buy('Menengah', '7k')">BELI SEKARANG</button>
+        </div>
+
+        <div class="product-card">
+            <h3 style="margin:0">Script Lua Rendah</h3>
+            <div class="price">3k</div>
+            <p class="desc">"hanya untuk studio lite"</p>
+            <button class="btn" onclick="buy('Rendah', '3k')">BELI SEKARANG</button>
+        </div>
+
+        <!-- FITUR ULASAN -->
+        <div class="review-section">
+            <h3 style="font-size: 1.2rem;">Kirim Ulasan</h3>
+            <div class="stars" id="star-container">
+                <span class="star" onclick="setRating(1)">★</span>
+                <span class="star" onclick="setRating(2)">★</span>
+                <span class="star" onclick="setRating(3)">★</span>
+                <span class="star" onclick="setRating(4)">★</span>
+                <span class="star" onclick="setRating(5)">★</span>
+            </div>
+            <textarea id="review-desc" rows="3" placeholder="Masukkan deskripsi ulasan..."></textarea>
+            <button class="btn" style="background: #28a745; box-shadow: 0 0 15px #28a745;" onclick="uploadUlasan()">UPLOAD ULASAN</button>
+        </div>
+
+        <a href="#" class="back-link" onclick="showPage('home')">Kembali</a>
+    </div>
+
+    <script>
+        let currentRating = 0;
+        const phoneAdmin = "62882022811476";
+
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        function openLink(url) {
+            setTimeout(() => {
+                window.open(url, '_blank');
+            }, 200);
+        }
+
+        function buy(level, harga) {
+            const text = encodeURIComponent(`Halo Admin, saya mau beli Script Lua ${level} seharga ${harga}.`);
+            setTimeout(() => {
+                window.open(`https://wa.me/62882022811476?text=@pJasa`, '_blank');
+            }, 200);
+        }
+
+        // Fungsi Bintang
+        function setRating(n) {
+            currentRating = n;
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((s, i) => {
+                s.classList.toggle('selected', i < n);
+            });
+        }
+
+        // Fungsi Upload Ulasan
+        function uploadUlasan() {
+            const desc = document.getElementById('review-desc').value;
+            if(currentRating === 0) return alert("Pilih jumlah bintang terlebih dahulu!");
+            if(!desc) return alert("Harap isi deskripsi ulasan!");
+
+            const starText = "⭐".repeat(currentRating);
+            const msg = encodeURIComponent(`*ULASAN BARU*\nRating: ${starText}\nDeskripsi: ${desc}`);
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/62882022811476?text=${msg}`, '_blank');
+            }, 200);
+        }
+    </script>
+</body>
+</html>
